@@ -15,11 +15,10 @@ body {
 a {
   color: #0070f3;
   text-decoration: none;
-  &:hover {
+  &:hover, &:active, &:focus {//Later Check
     text-decoration: underline;
   }
 }
-
 
 img {
   max-width: 100%;

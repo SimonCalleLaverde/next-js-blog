@@ -9,7 +9,7 @@ import Link from 'next/link';
 const name = 'Simón Calle Laverde';
 export const siteTitle = 'Next.js Sample Website';
 
-// Layout Wrapper
+// Layout (Wrapper)
 export default function Layout({ children, home }) {
   return (
     <div className={ styles.container }>

@@ -1,11 +1,9 @@
-// export default function FirstPost() {
-//   return <h1>First Post Wi Wi</h1>
-// }
-
+// Imports
 import Link from 'next/link';
 import Head from 'next/head';
 import Layout from '../../components/layout';
 
+// First Post (Temporary)
 export default function FirstPost() {
   return (
     <Layout>
