@@ -1,6 +1,7 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.scss'
+import Head from 'next/head';
+import Layout, { siteTitle } from '../components/layout';
+import utilStyles from '../styles/utils.module.scss';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -19,9 +20,21 @@ export default function Home() {
         </p>
 
         <p>
-          This is a sample website - built following on{' '}
-          <a href="https://nextjs.org/learn">the Next.js tutorial</a>.)
+          Following on{' '}
+          <a href="https://nextjs.org/learn">the <strong>Next.js</strong> tutorial</a>.
         </p>
+
+
+        {/*Temporary*/}
+        <Link href="/posts/first-post">
+          <a>
+            <h3>
+              First Post (Temporary)
+            </h3>
+          </a>
+        </Link>
+
+
       </section>
     </Layout>
   )

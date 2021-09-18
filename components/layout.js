@@ -1,13 +1,13 @@
 // Imports
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from './layout.module.scss'
-import utilStyles from '../styles/utils.module.scss'
-import Link from 'next/link'
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from './layout.module.scss';
+import utilStyles from '../styles/utils.module.scss';
+import Link from 'next/link';
 
 // Constants
-const name = 'Simón Calle Laverde'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Simón Calle Laverde';
+export const siteTitle = 'Next.js Sample Website';
 
 // Layout Wrapper
 export default function Layout({ children, home }) {
