@@ -1,11 +1,27 @@
 // Imports
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.scss';
-import Link from 'next/link';
+import Head from "next/head";
+import Layout, { siteTitle } from "../components/layout";
+import utilStyles from "../styles/utils.module.scss";
+import Link from "next/link";
+
+// Importing "GetSortedPostsData" & Using It In "getStaticProps"
+import { getSortedPostsData } from "../lib/posts";
+
+// Implementing "getStaticProps"
+export async function getStaticProps() {
+  // Get external data from the file system, API, DB, etc
+  const allPostsData = getSortedPostsData();
+
+  // The value of the `props` key will be passed to the `Home` component
+  return {
+    props: {
+      allPostsData
+    }
+  }
+};
 
 // Home Page
-export default function Home() {
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
@@ -26,18 +42,23 @@ export default function Home() {
           <a href="https://nextjs.org/learn">the <strong>Next.js</strong> tutorial</a>.
         </p>
 
-
         {/*Temporary*/}
-        <Link href="/posts/first-post">
+        {/*<Link href="/posts/first-post">
           <a>
             <h3>
               First Post (Temporary)
             </h3>
           </a>
-        </Link>
-
-
+        </Link>*/}
       </section>
+
+
+
+      <section>
+      </section>
+
+
+
     </Layout>
   )
-}
+};
