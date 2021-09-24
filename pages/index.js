@@ -7,15 +7,15 @@ import Link from "next/link";
 // Importing "GetSortedPostsData" & Using It In "getStaticProps"
 import { getSortedPostsData } from "../lib/posts";
 
-// Implementing "getStaticProps"
+// Implementing Async "getStaticProps"
 export async function getStaticProps() {
   // Get external data from the file system, API, DB, etc
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedPostsData()
 
-  // The value of the `props` key will be passed to the `Home` component
+  // The 'value' of the "props" 'key' will be passed to the "Home" component
   return {
     props: {
-      allPostsData
+      allPostsData//This is "allPostsData: allPostsData"
     }
   }
 };
@@ -28,6 +28,7 @@ export default function Home({ allPostsData }) {
         <title>{ siteTitle }</title>
       </Head>
 
+      {/* Self Introduction Section */}
       <section className={ utilStyles.headingMd }>
         <p>
           Immediately regret falling into bathtub tuxedo cats always looking
@@ -54,8 +55,26 @@ export default function Home({ allPostsData }) {
 
 
 
-      <section>
+
+      {/* Blog Posts Section */}
+      <section className={ `${utilStyles.headingMd} ${utilStyles.padding1px}` }>
+        <h2 className={ utilStyles.headingLg }>
+          Blog
+        </h2>
+
+        <ul className={ utilStyles.list }>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className={ utilStyles.listItem } key={ id }>
+              { title }
+              <br/>
+              { id }
+              <br/>
+              { date }
+            </li>
+          ))}
+        </ul>
       </section>
+
 
 
 
