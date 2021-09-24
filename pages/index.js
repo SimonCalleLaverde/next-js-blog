@@ -20,6 +20,16 @@ export async function getStaticProps() {
   }
 };
 
+// // To use Server-side Rendering, you need to export getServerSideProps instead of getStaticProps from your page.
+// // Starter Code Example
+// export async function getServerSideProps(context) {
+//   return {
+//     props: {
+//       // props for your component
+//     }
+//   }
+// };
+
 // Home Page
 export default function Home({ allPostsData }) {
   return (
