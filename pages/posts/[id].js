@@ -6,6 +6,7 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 export async function getStaticProps({ params }) {
   // Fetches necessary data for the blog post using params.id
   const postData = getPostData(params.id)
+
   return {
     props: {
       postData
@@ -30,9 +31,9 @@ export default function Post({ postData }) {
   return (
     <Layout>
       { postData.title }
-      <br />
+      <br/>
       { postData.id }
-      <br />
+      <br/>
       { postData.date }
     </Layout>
   )
