@@ -1,11 +1,12 @@
 import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 
-// "getStaticProps" which fetches necessary data for the post with "id"
+// "getStaticProps" fetches necessary data for the post with "id"
 // The post page is now using the getPostData function in getStaticProps to get the post data and return it as props
 export async function getStaticProps({ params }) {
-  // Fetches necessary data for the blog post using params.id
-  const postData = getPostData(params.id)
+  // Fetches necessary data for the blog post using "params.id"
+  // Adding the "await" keyword (to use 'remark' library)
+  const postData = await getPostData(params.id)
 
   return {
     props: {
@@ -14,7 +15,7 @@ export async function getStaticProps({ params }) {
   }
 };
 
-// "getStaticPaths" which returns an array of possible values for "id"
+// "getStaticPaths" returns an array of possible values for "id"
 // Importing & using the "getAllPostIds" function inside getStaticPaths
 export async function getStaticPaths() {
   // Returns a list of 'possible values' for id
@@ -27,6 +28,7 @@ export async function getStaticPaths() {
 };
 
 // A React component to render the page
+// Using 'remark' library: Rendering "contentHtml" (the 'content' part of the Blog Post) using "dangerouslySetInnerHTML"
 export default function Post({ postData }) {
   return (
     <Layout>
@@ -35,9 +37,9 @@ export default function Post({ postData }) {
       { postData.id }
       <br/>
       { postData.date }
+
+      <br/>
+      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}/>
     </Layout>
   )
 };
-// export default function Post() {
-//   return <Layout>...</Layout>
-// };
