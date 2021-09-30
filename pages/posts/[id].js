@@ -2,6 +2,7 @@ import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
+import utilStyles from "../../styles/utils.module.scss";
 
 // "getStaticProps" fetches necessary data for the post with "id"
 // The post page is now using the getPostData function in getStaticProps to get the post data and return it as props
@@ -38,16 +39,19 @@ export default function Post({ postData }) {
         <title>{ postData.title }</title>
       </Head>
 
-      { postData.title }
-      <br/>
-      { postData.id }
+      <article>
+        <h1 className={ utilStyles.headingXl }>
+          { postData.title }
+        </h1>
 
-      <br/>
-      {/* Replacing { postData.date } with: */}
-      <Date dateString={ postData.date }/>
+        {/*{ postData.id }*/}
 
-      <br/>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}/>
+        <div className={ utilStyles.lightText }>
+          <Date dateString={ postData.date }/>
+        </div>
+
+        <div dangerouslySetInnerHTML={ { __html: postData.contentHtml } }/>
+      </article>
     </Layout>
   )
 };
