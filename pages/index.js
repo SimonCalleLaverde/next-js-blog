@@ -21,12 +21,11 @@ export async function getStaticProps() {
   }
 };
 
-// // To use Server-side Rendering, you need to export getServerSideProps instead of getStaticProps from your page.
-// // Starter Code Example
+// // To use 'Server-side Rendering', export "getServerSideProps" instead of "getStaticProps" from page (Starter Code Example)
 // export async function getServerSideProps(context) {
 //   return {
 //     props: {
-//       // props for your component
+//       // props for component
 //     }
 //   }
 // };
@@ -64,9 +63,6 @@ export default function Home({ allPostsData }) {
         </Link>*/}
       </section>
 
-
-
-
       {/* Blog Posts Section */}
       <section className={ `${utilStyles.headingMd} ${utilStyles.padding1px}` }>
         <h2 className={ utilStyles.headingLg }>
@@ -90,17 +86,6 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
-
-
-
-            
-
-
-
-
-
-
-
     </Layout>
   )
 };
